@@ -1,0 +1,38 @@
+﻿@*@using DoAn_BanHoa.Models;
+ <a href="#" class="mt-1" style="background-color: white" data-toggle="modal" data-target="#myModal" onclick="clearTextBox();">TEST</a>
+    <div class="modal" id="myModal" tabindex="1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="margin-top: 150px">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title" id="dangnhap">ĐĂNG NHẬP</h4>
+                    <button type="button" class="btn mau" id="iclose" data-dismiss="modal">X</button>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div class="form-group">
+                            <label for="TenDN">Tên đăng nhập:</label>
+                            <input type="text" class="form-control" id="TenDN" placeholder="Tên đăng nhập">
+                        </div>
+                        <div class="form-group">
+                            <label for="MK">Mật khẩu:</label>
+                            <input type="password" class="form-control" id="MK" placeholder="Mật khẩu" />
+                        </div>
+
+                    </form>
+                </div>
+                <div class="row">
+                    <div class="col-12 text-center" id="error">Nếu bạn chưa có tài khoản hãy bấm vào đăng ký</div>
+                </div>
+                <div class="modal-footer">
+                    <div class="form-group">
+                        <a href="@Url.Action("DangKy", "NguoiDung")" class="btn " style="background-color:black;color:white" >Đăng ký</a>
+
+                        <button type="button" class="btn mau" id="btnDangNhap" onclick=" return DangNhap();">Đăng nhập</button>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+<script src="~/Content/taikhoan.js"></script>*@

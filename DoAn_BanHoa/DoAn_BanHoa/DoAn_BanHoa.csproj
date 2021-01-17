@@ -1,0 +1,360 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{D4C330AA-5D37-4465-96CE-9D2A2A177FE3}</ProjectGuid>
+    <ProjectTypeGuids>{E3E379DF-F4C6-4180-9B81-6769533ABE47};{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>DoAn_BanHoa</RootNamespace>
+    <AssemblyName>DoAn_BanHoa</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <MvcBuildViews>false</MvcBuildViews>
+    <UseIISExpress>true</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="PagedList, Version=1.17.0.0, Culture=neutral, PublicKeyToken=abbb863e9397c5e1, processorArchitecture=MSIL">
+      <HintPath>..\packages\PagedList.1.17.0.0\lib\net40\PagedList.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="PagedList.Mvc, Version=4.5.0.0, Culture=neutral, PublicKeyToken=abbb863e9397c5e1, processorArchitecture=MSIL">
+      <HintPath>..\packages\PagedList.Mvc.4.5.0.0\lib\net40\PagedList.Mvc.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.Linq" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Abstractions" />
+    <Reference Include="System.Web.Routing" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Web.Mvc.FixedDisplayModes, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.FixedDisplayModes.1.0.0\lib\net40\Microsoft.Web.Mvc.FixedDisplayModes.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\packages\Newtonsoft.Json.4.5.11\lib\net40\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.Net.Http.2.0.20710.0\lib\net40\System.Net.Http.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http.Formatting, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.4.0.20710.0\lib\net40\System.Net.Http.Formatting.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http.WebRequest">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.Net.Http.2.0.20710.0\lib\net40\System.Net.Http.WebRequest.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Helpers, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.2.0.20710.0\lib\net40\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Core.4.0.20710.0\lib\net40\System.Web.Http.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http.WebHost, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.WebHost.4.0.20710.0\lib\net40\System.Web.Http.WebHost.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.4.0.20710.0\lib\net40\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Razor.2.0.20715.0\lib\net40\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.2.0.20710.0\lib\net40\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.2.0.20710.0\lib\net40\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.2.0.20710.0\lib\net40\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Controllers\GioHangController.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\NguoiDungController.cs" />
+    <Compile Include="Controllers\ProductController.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Models\GioHang.cs" />
+    <Compile Include="Models\Product.cs" />
+    <Compile Include="Models\QuanLyShopHoa.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>QuanLyShopHoa.dbml</DependentUpon>
+    </Compile>
+    <Compile Include="Models\User.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\FilterConfig.cs" />
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="App_Start\WebApiConfig.cs" />
+    <Content Include="Content\AlbumHoa\001.jpeg" />
+    <Content Include="Content\AlbumHoa\002.jpeg" />
+    <Content Include="Content\AlbumHoa\003.jpeg" />
+    <Content Include="Content\AlbumHoa\004.jpeg" />
+    <Content Include="Content\AlbumHoa\005.jpeg" />
+    <Content Include="Content\AlbumHoa\006.jpeg" />
+    <Content Include="Content\AlbumHoa\007.jpeg" />
+    <Content Include="Content\AlbumHoa\008.jpeg" />
+    <Content Include="Content\AlbumHoa\009.jpeg" />
+    <Content Include="Content\AlbumHoa\010.jpeg" />
+    <Content Include="Content\AlbumHoa\011.jpeg" />
+    <Content Include="Content\AlbumHoa\012.jpeg" />
+    <Content Include="Content\AlbumHoa\013.jpeg" />
+    <Content Include="Content\AlbumHoa\014.jpeg" />
+    <Content Include="Content\AlbumHoa\015.jpeg" />
+    <Content Include="Content\AlbumHoa\016.jpeg" />
+    <Content Include="Content\AlbumHoa\017.jpeg" />
+    <Content Include="Content\AlbumHoa\018.jpeg" />
+    <Content Include="Content\AlbumHoa\019.jpeg" />
+    <Content Include="Content\AlbumHoa\020.jpeg" />
+    <Content Include="Content\AlbumHoa\021.jpeg" />
+    <Content Include="Content\AlbumHoa\022.jpeg" />
+    <Content Include="Content\AlbumHoa\023.jpeg" />
+    <Content Include="Content\AlbumHoa\024.jpeg" />
+    <Content Include="Content\AlbumHoa\029.jpeg" />
+    <Content Include="Content\AlbumHoa\030.jpeg" />
+    <Content Include="Content\AlbumHoa\031.jpeg" />
+    <Content Include="Content\AlbumHoa\baby1.jpeg" />
+    <Content Include="Content\AlbumHoa\baby2.jpeg" />
+    <Content Include="Content\AlbumHoa\baby3.jpeg" />
+    <Content Include="Content\AlbumHoa\baby4.jpeg" />
+    <Content Include="Content\AlbumHoa\chiabuon1.jpeg" />
+    <Content Include="Content\AlbumHoa\chiabuon2.jpeg" />
+    <Content Include="Content\AlbumHoa\chiabuon3.jpeg" />
+    <Content Include="Content\AlbumHoa\chiabuon4.jpeg" />
+    <Content Include="Content\AlbumHoa\chiabuon5.jpeg" />
+    <Content Include="Content\AlbumHoa\chiabuon6.jpeg" />
+    <Content Include="Content\AlbumHoa\chiabuon7.jpeg" />
+    <Content Include="Content\AlbumHoa\chiabuon8.jpeg" />
+    <Content Include="Content\AlbumHoa\chucmung1.jpeg" />
+    <Content Include="Content\AlbumHoa\chucmung2.jpeg" />
+    <Content Include="Content\AlbumHoa\chucmung3.jpeg" />
+    <Content Include="Content\AlbumHoa\giohoa1.jpeg" />
+    <Content Include="Content\AlbumHoa\giohoa2.jpeg" />
+    <Content Include="Content\AlbumHoa\giohoa3.jpeg" />
+    <Content Include="Content\AlbumHoa\giohoa4.jpeg" />
+    <Content Include="Content\AlbumHoa\hoacuoi1.jpeg" />
+    <Content Include="Content\AlbumHoa\hoacuoi2.jpeg" />
+    <Content Include="Content\AlbumHoa\hoacuoi3.jpeg" />
+    <Content Include="Content\AlbumHoa\huongduong1.jpeg" />
+    <Content Include="Content\AlbumHoa\huongduong2.jpeg" />
+    <Content Include="Content\AlbumHoa\huongduong3.jpeg" />
+    <Content Include="Content\AlbumHoa\huongduong4.jpeg" />
+    <Content Include="Content\AlbumHoa\kehoa1.jpeg" />
+    <Content Include="Content\AlbumHoa\kehoa2.jpeg" />
+    <Content Include="Content\AlbumHoa\kehoa3.jpeg" />
+    <Content Include="Content\AlbumHoa\kehoa4.jpeg" />
+    <Content Include="Content\Carousel\1.jpeg" />
+    <Content Include="Content\Carousel\2.png" />
+    <Content Include="Content\Carousel\3.png" />
+    <Content Include="Content\Carousel\5.png" />
+    <Content Include="Content\Carousel\banner4.gif" />
+    <Content Include="Content\icon\2.png" />
+    <Content Include="Content\icon\check.png" />
+    <Content Include="Content\icon\delete-cart.png" />
+    <Content Include="Content\icon\delete.png" />
+    <Content Include="Content\icon\home.png" />
+    <Content Include="Content\icon\management.png" />
+    <Content Include="Content\icon\next.png" />
+    <Content Include="Content\icon\next_info.png" />
+    <Content Include="Content\icon\prev.png" />
+    <Content Include="Content\icon\prev_info.png" />
+    <Content Include="Content\icon\reload.png" />
+    <Content Include="Content\icon\shopping-cart .png" />
+    <Content Include="Content\icon\shopping-cart.png" />
+    <Content Include="Content\Images\1.jpeg" />
+    <Content Include="Content\Images\2.jpeg" />
+    <Content Include="Content\Images\3.jpeg" />
+    <Content Include="Content\Images\search.png" />
+    <Content Include="Content\Images\vy_logo.jpg" />
+    <Content Include="Content\Images_Footer\1.jpeg" />
+    <Content Include="Content\Images_Footer\2.jpeg" />
+    <Content Include="Content\Images_Footer\3.jpeg" />
+    <Content Include="Content\Images_Footer\blackpink.jpg" />
+    <Content Include="Content\Images_Footer\bouquet.png" />
+    <Content Include="Content\Images_Footer\call.png" />
+    <Content Include="Content\Images_Footer\Cart.png" />
+    <Content Include="Content\Images_Footer\clock.png" />
+    <Content Include="Content\Images_Footer\delivery.png" />
+    <Content Include="Content\Images_Footer\email.png" />
+    <Content Include="Content\Images_Footer\facebook.png" />
+    <Content Include="Content\Images_Footer\instagram.png" />
+    <Content Include="Content\Images_Footer\LogoFaHaSa.JPG" />
+    <Content Include="Content\Images_Footer\muse.png" />
+    <Content Include="Content\Images_Footer\rocket.png" />
+    <Content Include="Content\Images_Footer\rose.png" />
+    <Content Include="Content\Images_Footer\search.JPG" />
+    <Content Include="Content\Images_Footer\search.png" />
+    <Content Include="Content\Images_Footer\support.png" />
+    <Content Include="Content\Images_Footer\youtube.png" />
+    <Content Include="Content\number\1.png" />
+    <Content Include="Content\number\2.png" />
+    <Content Include="Content\number\3.png" />
+    <Content Include="Content\number\4.png" />
+    <Content Include="Content\number\5.png" />
+    <Content Include="Content\number\6.png" />
+    <Content Include="Content\number\7.png" />
+    <Content Include="Content\number_cus\1.png" />
+    <Content Include="Content\number_cus\2.png" />
+    <Content Include="Content\number_cus\3.png" />
+    <Content Include="Content\number_cus\4.png" />
+    <Content Include="Content\number_cus\5.png" />
+    <Content Include="Content\number_cus\6.png" />
+    <Content Include="Content\number_cus\7.png" />
+    <Content Include="Content\PagedList.css" />
+    <Content Include="Content\taikhoan.js" />
+    <Content Include="Global.asax" />
+    <Content Include="Web.config" />
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Views\Web.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Models\QuanLyShopHoa.dbml">
+      <Generator>MSLinqToSQLGenerator</Generator>
+      <LastGenOutput>QuanLyShopHoa.designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{3259AA49-8AA1-44D3-9025-A0B520596A8C}" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Models\QuanLyShopHoa.dbml.layout">
+      <DependentUpon>QuanLyShopHoa.dbml</DependentUpon>
+    </None>
+    <Content Include="Views\Share\TrangChuLayout.cshtml" />
+    <Content Include="Views\Share\DetailLayout.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Home\GioHangRong.cshtml" />
+    <Content Include="Views\Home\DSMenu_LoaiHoa.cshtml" />
+    <Content Include="Views\Home\DSMenu_ChuDe.cshtml" />
+    <Content Include="Views\Home\ChiTiet.cshtml" />
+    <Content Include="Views\Home\DSDrop_LoaiHoa.cshtml" />
+    <Content Include="Views\Home\DSDrop_ChuDeHoa.cshtml" />
+    <Content Include="Views\GioHang\GioHangPartial.cshtml" />
+    <Content Include="Views\GioHang\GioHang.cshtml" />
+    <Content Include="Views\NguoiDung\DangKy.cshtml" />
+    <Content Include="Views\NguoiDung\DangNhap.cshtml" />
+    <Content Include="Views\Home\TimKiemRong.cshtml" />
+    <Content Include="Views\Home\Search.cshtml" />
+    <Content Include="Views\Product\ThemSanPham.cshtml" />
+    <Content Include="Views\Share\AdminLayout.cshtml" />
+    <Content Include="Views\Product\Index.cshtml" />
+    <Content Include="Views\Home\SanPham.cshtml" />
+    <Content Include="Views\Product\DSMenu_LoaiHoa.cshtml" />
+    <Content Include="Views\Product\Index1.cshtml" />
+    <Content Include="Views\Product\SuaSanPham.cshtml" />
+    <Content Include="Views\Home\HTTheoChuDe.cshtml" />
+    <Content Include="Views\Home\HTTheoLoaiHoa.cshtml" />
+    <Content Include="Views\Product\SanPhamAdmin.cshtml" />
+    <Content Include="Views\Product\SuaSanPham1.cshtml" />
+    <Content Include="Views\Product\DSThanhVien.cshtml" />
+    <Content Include="Views\Product\ThanhVien.cshtml" />
+    <Content Include="Views\Product\ThanhVienRong.cshtml" />
+    <Content Include="Views\GioHang\XacNhanDonHang.cshtml" />
+    <Content Include="Views\GioHang\DatHang.cshtml" />
+    <Content Include="Views\NguoiDung\DangNhapAjaxPartial.cshtml" />
+    <Content Include="Views\Product\DSDonHang.cshtml" />
+    <Content Include="Views\Product\SuaKhachHang.cshtml" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <Target Name="MvcBuildViews" AfterTargets="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">
+    <AspNetCompiler VirtualPath="temp" PhysicalPath="$(WebProjectOutputDir)" />
+  </Target>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>0</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:1211/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target> -->
+</Project>

@@ -1,0 +1,53 @@
+﻿@{
+    ViewBag.Title = "SuaSanPham";
+    Layout = "~/Views/Share/AdminLayout.cshtml";
+}
+
+@model DoAn_BanHoa.Models.HOA
+<h2 style="text-align: center; color: darkblue">SỬA SẢN PHẨM</h2>
+@using (Html.BeginForm("SuaSanPham", "Product", FormMethod.Post, new { @enctype = "multipart/form-data" }))
+{
+    @Html.HiddenFor(model => model.MAHOA)
+    <div class="form-group row">
+        <label class="col-md-2">Tên hoa:</label>
+        <div class="col-md-10 ">@Html.TextBoxFor(item => item.TENHOA, new  { @class = "form-control" })
+        </div>
+    </div>
+    <div class="form-group row">
+        <label class="col-md-2">Mã loại:</label>
+        <div class="col-md-10">@Html.DropDownList("MALOAI", (SelectList)ViewBag.loaiHoa, "Loại Hoa", new { @class = "form-control" })
+        </div>
+    </div>
+    <div class="form-group row">
+        <label class="col-md-2">Giá:</label>
+        <div class="col-md-10 ">@Html.TextBoxFor(item => item.GIA, new { @class = "form-control" })
+        </div>
+    </div>
+    <div class="form-group row">
+        <label class="col-md-2">Mô tả:</label>
+        <div class="col-md-10">
+                    @Html.TextAreaFor(item => item.MOTA, new {@class="form-control"})    
+        </div>
+
+    </div>
+    <div class="form-group row">
+        <label class="col-md-2">Ảnh hoa:</label>
+        <div class="col-md-10">
+            <input type="file" name="fup" />
+        </div>
+    </div>
+    <div class="form-group row">
+        <label class="col-md-2">Mã chủ đề:</label>
+        <div class="col-md-10">@Html.DropDownList("MACHUDE", (SelectList)ViewBag.chuDe, "Chủ Đề", new { @class = "form-control" })
+    </div>
+        </div>
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-12 text-center">
+            <input type="submit" value="Edit Product" class="btn btn-default" />
+        </div>
+    </div>
+}
+
+
+
+

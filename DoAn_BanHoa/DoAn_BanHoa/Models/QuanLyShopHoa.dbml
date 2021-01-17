@@ -1,0 +1,67 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="QuanLyShopHoa" Class="QuanLyShopHoaDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="WebSettings" ConnectionString="Data Source=.;Initial Catalog=QuanLyShopHoa;Integrated Security=True" SettingsObjectName="System.Configuration.ConfigurationManager.ConnectionStrings" SettingsPropertyName="QuanLyShopHoaConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.CHUDE" Member="CHUDEs">
+    <Type Name="CHUDE">
+      <Column Name="MACHUDE" Type="System.String" DbType="NChar(5) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="TENCHUDE" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Association Name="CHUDE_HOA" Member="HOAs" ThisKey="MACHUDE" OtherKey="MACHUDE" Type="HOA" />
+    </Type>
+  </Table>
+  <Table Name="dbo.TAIKHOAN" Member="TAIKHOANs">
+    <Type Name="TAIKHOAN">
+      <Column Name="MAKH" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="HOTEN" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="TENDN" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="MATKHAU" Type="System.String" DbType="NChar(50)" CanBeNull="true" />
+      <Column Name="SDT" Type="System.String" DbType="NChar(12)" CanBeNull="true" />
+      <Column Name="NGAYSINH" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="EMAIL" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="DIACHI" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="QUYEN" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Association Name="TAIKHOAN_DONHANG" Member="DONHANGs" ThisKey="MAKH" OtherKey="MAKH" Type="DONHANG" />
+    </Type>
+  </Table>
+  <Table Name="dbo.CTDONHANG" Member="CTDONHANGs">
+    <Type Name="CTDONHANG">
+      <Column Name="MADONHANG" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="MAHOA" Type="System.String" DbType="NChar(5) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="SOLUONG" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="DONGIA" Type="System.Decimal" DbType="Decimal(18,0)" CanBeNull="true" />
+      <Association Name="DONHANG_CTDONHANG" Member="DONHANG" ThisKey="MADONHANG" OtherKey="MADONHANG" Type="DONHANG" IsForeignKey="true" />
+      <Association Name="HOA_CTDONHANG" Member="HOA" ThisKey="MAHOA" OtherKey="MAHOA" Type="HOA" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.DONHANG" Member="DONHANGs">
+    <Type Name="DONHANG">
+      <Column Name="MADONHANG" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="NGAYGIAO" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="NGAYDAT" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="DATHANHTOAN" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="TINHTRANGGIAOHANG" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="MAKH" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="DONHANG_CTDONHANG" Member="CTDONHANGs" ThisKey="MADONHANG" OtherKey="MADONHANG" Type="CTDONHANG" />
+      <Association Name="TAIKHOAN_DONHANG" Member="TAIKHOAN" ThisKey="MAKH" OtherKey="MAKH" Type="TAIKHOAN" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.HOA" Member="HOAs">
+    <Type Name="HOA">
+      <Column Name="MAHOA" Type="System.String" DbType="NChar(5) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="TENHOA" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="MALOAI" Type="System.String" DbType="NChar(5)" CanBeNull="true" />
+      <Column Name="GIA" Type="System.Decimal" DbType="Decimal(18,0)" CanBeNull="true" />
+      <Column Name="MOTA" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="ANH" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="MACHUDE" Type="System.String" DbType="NChar(5)" CanBeNull="true" />
+      <Association Name="HOA_CTDONHANG" Member="CTDONHANGs" ThisKey="MAHOA" OtherKey="MAHOA" Type="CTDONHANG" />
+      <Association Name="CHUDE_HOA" Member="CHUDE" ThisKey="MACHUDE" OtherKey="MACHUDE" Type="CHUDE" IsForeignKey="true" />
+      <Association Name="LOAIHOA_HOA" Member="LOAIHOA" ThisKey="MALOAI" OtherKey="MALOAI" Type="LOAIHOA" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.LOAIHOA" Member="LOAIHOAs">
+    <Type Name="LOAIHOA">
+      <Column Name="MALOAI" Type="System.String" DbType="NChar(5) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="TENLOAI" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Association Name="LOAIHOA_HOA" Member="HOAs" ThisKey="MALOAI" OtherKey="MALOAI" Type="HOA" />
+    </Type>
+  </Table>
+</Database>

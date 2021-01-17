@@ -1,0 +1,39 @@
+﻿@{
+    ViewBag.Title = "DSDonHang";
+    Layout = "~/Views/Share/AdminLayout.cshtml";
+}
+@using DoAn_BanHoa.Models;
+@model List<DONHANG>
+<h2 style="margin-top: 20px; color: #e51c71">DANH SÁCH THÀNH VIÊN</h2>
+<div class="row">
+    <div class="col-md-9">
+        <table style="border: 1px solid #e51c71;" class="table table-borderless table-hover">
+
+            <thead style="font-weight: bold;">
+                <tr>
+                    <td style="width: 50px; text-align: left; border-bottom: 1px solid #e51c71; border-top: 1px solid #e51c71;" class="text-uppercase">Mã DH</td>
+                    <td style="width: 100px; text-align: left; border-bottom: 1px solid #e51c71; border-top: 1px solid #e51c71;" class="text-uppercase">Ngày giao</td>
+                    <td style="width: 200px; text-align: center; border-bottom: 1px solid #e51c71; border-top: 1px solid #e51c71;" class="text-uppercase">Ngày đặt</td>
+                    <td style="width: 170px; text-align: center; border-bottom: 1px solid #e51c71; border-top: 1px solid #e51c71;" class="text-uppercase">Tình trạng</td>
+                    <td style="width: 170px; text-align: left; border-bottom: 1px solid #e51c71; border-top: 1px solid #e51c71;" class="text-uppercase">Tên khách hàng mua</td>
+                </tr>
+            </thead>
+
+            <!---Chạy dòng foreach-->
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td style="text-align: left;">@item.MADONHANG</td>
+                    <td style="text-align: center">@item.NGAYGIAO</td>
+                    <td style="text-align: center">@item.NGAYDAT</td>
+                    <td style="text-align: center">@item.MAKH</td>
+                    <td style="text-align: center"><a href="@Url.Action("XoaKhachHang","Product",new {@maKH = item.MAKH})">Chi tiết</a></td>
+                </tr>
+            }
+            <p style="float: right; color: #e51c71; font-weight: bold">Tổng thành viên: @ViewBag.tv</p>
+
+        </table>
+    </div>
+</div>
+
+

@@ -1,0 +1,19 @@
+﻿@using DoAn_BanHoa.Models;
+@model List<LOAIHOA>
+<style>
+    .dropdown li a:hover {
+        background-color:indianred;
+        color:white;
+    }
+</style>
+<div class="nav-item dropdown ">
+    <a href="#" class=" nav-link dropdown-toggle text-black " role="button" data-toggle="dropdown">CÁC LOẠI HOA
+    </a>
+    <ul class="dropdown-menu ">
+        @foreach (var item in Model)
+        {
+        
+            <li><a href="@Url.Action("HTTheoLoaiHoa", "Home", new { @lh = @item.MALOAI })" class="dropdown-item text-black" >@item.TENLOAI</a></li>
+        }
+    </ul>
+</div>

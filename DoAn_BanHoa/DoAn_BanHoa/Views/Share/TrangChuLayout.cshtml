@@ -1,0 +1,281 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <style>
+        #Header {
+            width: 100%;
+            position: fixed;
+            z-index: 1;
+            top: 0px;
+            transition: top 0.3s;
+            left: 0;
+        }
+
+        #Body {
+            margin: 140px 0 0 0;
+        }
+    </style>
+    <!--Bootstrap 4-->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" />
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <script src="https://cdn.rawgit.com/PascaleBeier/bootstrap-validate/v2.2.0/dist/bootstrap-validate.js"></script>
+    <link href="~/Content/PagedList.css" rel="stylesheet" />
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+</head>
+<body>
+    <div id="Header">
+        <nav class="navbar navbar-expand-lg navbar-light" style="background: linear-gradient(to right, #e51c71 0%, #33ccff  100%);">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="#"></a>
+                <div class="collapse navbar-collapse">
+                    <ul class="navbar-nav mr-auto mb-2 mb-lg-0">
+                        <li class="nav-item dropdown">
+                            <a href="#" class="nav-link dropdown-toggle text-white" role="button" data-toggle="dropdown">DỊCH VỤ KHÁCH HÀNG
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item">Thông tin</a></li>
+                                <li><a class="dropdown-item">Liên hệ với chúng tôi</a></li>
+                                <li>
+                                    <hr class="dropdown-divider" />
+                                </li>
+                                <li><a class="dropdown-item" href="#">Cái gì đó hí hí</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active text-uppercase text-white" href="#">LIÊN HỆ VỚI CHÚNG TÔI</a>
+                        </li>
+                    </ul>
+                    <!--Tìm kiếm-->
+                    <form action="/Home/Search/" method="post" class="">
+                        <div class="row " style="margin-right: 200px">
+                            <div class="col-md-10">
+                                <input type="search" class="form-control " name="txtTimKiem" value="" placeholder="Tìm kiếm" style="width: 100%" />
+                            </div>
+                            <div class="col-md-2">
+                                <button class="btn btn-outline-dark" style="margin-right: 150px;" type="submit">
+                                    <img src="~/Content/Images/search.png" /></button>
+                            </div>
+                        </div>
+                    </form>
+
+                    <!--Tìm kiếm-->
+                    <ul style="margin-left: 180px" class="navbar-nav mr-auto mb-2 mb-lg-0">
+                        <li class="nav-item dropdown">
+                            <a href="#" style="margin-right: 10px" class=" nav-link dropdown-toggle " role="button" id="dropdownMenu" data-toggle="dropdown" aria-expanded="false">
+                                <svg width="1em" height="1em" viewBox="-42 0 512 512.002" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="m210.351562 246.632812c33.882813 0 63.222657-12.152343 87.195313-36.128906 23.972656-23.972656 36.125-53.304687 36.125-87.191406 0-33.875-12.152344-63.210938-36.128906-87.191406-23.976563-23.96875-53.3125-36.121094-87.191407-36.121094-33.886718 0-63.21875 12.152344-87.191406 36.125s-36.128906 53.308594-36.128906 87.1875c0 33.886719 12.15625 63.222656 36.132812 87.195312 23.976563 23.96875 53.3125 36.125 87.1875 36.125zm0 0" />
+                                    <path d="m426.128906 393.703125c-.691406-9.976563-2.089844-20.859375-4.148437-32.351563-2.078125-11.578124-4.753907-22.523437-7.957031-32.527343-3.308594-10.339844-7.808594-20.550781-13.371094-30.335938-5.773438-10.15625-12.554688-19-20.164063-26.277343-7.957031-7.613282-17.699219-13.734376-28.964843-18.199219-11.226563-4.441407-23.667969-6.691407-36.976563-6.691407-5.226563 0-10.28125 2.144532-20.042969 8.5-6.007812 3.917969-13.035156 8.449219-20.878906 13.460938-6.707031 4.273438-15.792969 8.277344-27.015625 11.902344-10.949219 3.542968-22.066406 5.339844-33.039063 5.339844-10.972656 0-22.085937-1.796876-33.046874-5.339844-11.210938-3.621094-20.296876-7.625-26.996094-11.898438-7.769532-4.964844-14.800782-9.496094-20.898438-13.46875-9.75-6.355468-14.808594-8.5-20.035156-8.5-13.3125 0-25.75 2.253906-36.972656 6.699219-11.257813 4.457031-21.003906 10.578125-28.96875 18.199219-7.605469 7.28125-14.390625 16.121094-20.15625 26.273437-5.558594 9.785157-10.058594 19.992188-13.371094 30.339844-3.199219 10.003906-5.875 20.945313-7.953125 32.523437-2.058594 11.476563-3.457031 22.363282-4.148437 32.363282-.679688 9.796875-1.023438 19.964844-1.023438 30.234375 0 26.726562 8.496094 48.363281 25.25 64.320312 16.546875 15.746094 38.441406 23.734375 65.066406 23.734375h246.53125c26.625 0 48.511719-7.984375 65.0625-23.734375 16.757813-15.945312 25.253906-37.585937 25.253906-64.324219-.003906-10.316406-.351562-20.492187-1.035156-30.242187zm0 0" />
+                                </svg>
+                            </a>
+                            @*@Html.Action("DangNhapAjaxPartial","NguoiDung")*@
+                            <ul class="dropdown-menu" aria-labelledby="dropdownMenu">
+                                <li><a href="@Url.Action("DangNhap", "NguoiDung")" class="dropdown-item">Đăng Nhập</a></li>
+                                <li><a href="@Url.Action("DangKy", "NguoiDung")" class="dropdown-item">Đăng Ký</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <nav class="navbar navbar-expand-lg navbar-light bg-light" style="box-shadow: 4px 4px 9px #6E6E6E; font-size: 13pt">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="@Url.Action("SanPham", "Home")">
+                    <img src="~/Content/Images/vy_logo.jpg" width="130" />
+                </a>
+                <div class="collapse navbar-collapse">
+                    <ul class="navbar-nav mr-auto mb-2 mb-lg-0">
+                        <li class="nav-item"><a href="@Url.Action("SanPham", "Home")" class="nav-link active text-black">TRANG CHỦ</a></li>
+                        @Html.Action("DSDrop_LoaiHoa", "Home")
+
+                        @Html.Action("DSDrop_ChuDeHoa", "Home")
+                    </ul>
+                    @Html.Action("GioHangPartial", "GioHang")
+                </div>
+            </div>
+        </nav>
+    </div>
+    <div id="Body">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-3" style="margin-top: 20px">
+
+                    <div class="card">
+                        <ul class="list-group list-group-flush text-left ml-2">
+                            @Html.Action("DSMenu_ChuDe", "Home")
+                        </ul>
+                        <ul class="list-group list-group-flush text-left ml-2">
+                            @Html.Action("DSMenu_LoaiHoa", "Home")
+
+                        </ul>
+
+                    </div>
+                </div>
+                <div class="col-md-7">
+                    <div id="carouselHome" class="carousel mx-auto" style="margin-top: 20px;" data-ride="carousel">
+                        <div class="carousel-inner">
+                            <div class="carousel-item active">
+                                <img src="~/Content/Carousel/1.jpeg" style="width: 100%; height: 300px" class="d-block " alt="Anh1" />
+                            </div>
+                            <div class="carousel-item">
+                                <img src="~/Content/Carousel/2.png" style="width: 100%; height: 300px" class="d-block " alt="Anh2" />
+                            </div>
+                            <div class="carousel-item">
+                                <img src="~/Content/Carousel/3.png" style="width: 100%; height: 300px" class="d-block " alt="Anh3" />
+                            </div>
+                            <div class="carousel-item">
+                                <img src="~/Content/Carousel/banner4.gif" style="width: 100%; height: 300px" class="d-block " alt="Anh4" />
+
+                            </div>
+                            <div class="carousel-item">
+                                <img src="~/Content/Carousel/5.png" style="width: 100%; height: 300px" class="d-block " alt="Anh5" />
+                            </div>
+
+                        </div>
+                        <a class="carousel-control-prev" href="#carouselHome" role="button" data-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="sr-only">Previous</span>
+                        </a>
+                        <a class="carousel-control-next" href="#carouselHome" role="button" data-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        </a>
+                    </div>
+                    @RenderBody()
+
+                </div>
+                <div class="col-md-2"></div>
+            </div>
+            <!--Footer-->
+            <div class="bg-light" style="">
+                <h2 style="text-align: center; margin-top: 40px;">VYFLOWER LUÔN ĐỒNG HÀNH CÙNG BẠN</h2>
+                <hr />
+                <div class="row">
+                    <div class="col-md-4 text-center">
+                        <img src="~/Content/Images_Footer/rose.png" class="card-img-top w-25 " style="text-align: center" />
+                        <h3 style="text-align: center;">01. Hoa nhập có nguồn gốc</h3>
+                        <p style="text-align: center">Shop lựa chọn những bông hoa to và tươi nhất để thiết kế các mẫu hoa gửi đến khách hàng. Cam kết hoa tươi trên 4 ngày sau khi giao đến người nhận.</p>
+                    </div>
+                    <div class="col-md-4 text-center">
+                        <img src="~/Content/Images_Footer/rocket.png" class="card-img-top w-25 " />
+                        <h3 style="text-align: center;">02. Xác nhận đơn hàng lập tức</h3>
+                        <p style="text-align: center">Bộ phận tư vấn sẽ gọi đến khách hàng để xác nhận lại thông tin những đơn hàng đặt trên website trong thời gian ngắn nhất. Shop dùng phương pháp này để tránh sót những những đơn hàng khách đặt.</p>
+                    </div>
+                    <div class="col-md-4 text-center">
+                        <img src="~/Content/Images_Footer/clock.png" class="card-img-top w-25 " />
+                        <h3 style="text-align: center;">03. Giao hàng nhanh và đúng giờ</h3>
+                        <p style="text-align: center">Nhân viên giao hàng sẽ thực hiện gọi trước cho khách nhận hoa. Với kỹ năng giao hàng được đào tạo thì những bó, giỏ hoa đến khách nhân sẽ không bị dập, nát, gãy, rụng,...</p>
+                    </div>
+                </div>
+                <div class="row mt-5 text-center">
+                    <div class="col-md-4">
+                        <img src="~/Content/Images_Footer/support.png" style="text-align: center" width="20%" />
+                        <h3>04. Tư vấn khách hàng tận tâm</h3>
+                        <p style="text-align: center">Nhân viên tư vấn sẽ tư vấn tới khách hàng thông qua các kênh như Zalo, Messenger, điện thoại… Để giúp khách hàng chọn được mẫu hoa ưng ý và đẹp nhất trong tầm giá mà khách hàng yêu cầu. Ngoài ra giải đáp các thắc của khách hàng về quá trình giao nhận, thanh toán,...</p>
+                    </div>
+                    <div class="col-md-4">
+                        <img src="~/Content/Images_Footer/bouquet.png" style="text-align: center" width="20%" />
+                        <h3>05. Mẫu hoa hiện đại - sáng tạo</h3>
+                        <p style="text-align: center">Shop luôn cập nhập những mẫu hoa mới vào mỗi tuần là những mẫu hoa đẹp mắt nhất, lung linh nhất. Nàng Thơ luôn cải thiện sản phẩm của mình làm ra vì thế những khóm hoa giao đến người nhận sẽ là những khóm hoa đẹp nhất và tỉ mỉ nhất.</p>
+                    </div>
+
+                    <div class="col-md-4">
+                        <img src="~/Content/Images_Footer/delivery.png" style="text-align: center" width="20%" />
+                        <h3>06. Giao hoa miễn phí</h3>
+                        <p style="text-align: center">Shop muốn đóng góp nhỏ vào món quà của khách hàng bằng cách miễn phí vận chuyển món quà đến người nhận. Miễn phí vận chuyển sẽ áp dụng trên toàn TP.HCM và Hà Nội.</p>
+                    </div>
+                </div>
+                <hr />
+                <div name="blog" style="text-align: justify">
+                    <h2 style="text-align: center">LỜI NHẮN TỪ VYFLOWER</h2>
+
+                    <p>Có bao giờ bạn đi ngủ khi trời đã gần sáng, đêm dài mỏi mệt khiến tâm trí không được an lòng và phải chợp mắt cho qua trước khi một ngày mới nữa lại tới. Những buồn vui đan xen nhau đôi khi khiến chúng ta mỏi mệt, vui vì đã hoàn thành công việc và được đi ngủ, còn buồn vì đã bỏ quên bản thân quá nhiều.</p>
+                    <p>Có bao giờ bạn lưỡng lự giữa việc chọn một quán quen mình yêu thích để tận hưởng sau ngày dài công sở, rồi quyết định về nhà để ăn qua bữa và tiếp tục làm những điều tẻ nhạt.</p>
+                    <p>Chúng ta đôi khi quên bản thân không phải vì cố tình, mà vì đầu óc không còn ngăn trống nào để nhớ đến nữa.</p>
+                    <p>Là cửa hàng hoa giữa Sài Gòn rộng lớn, Nàng Thơ vẫn thường dặn khách hàng rằng hãy vui vẻ cho dù chuyện có thế nào đi nữa, mua cho mình và người thương một bó hoa tươi, cắm nơi làm việc rồi dặn lòng từ nay phải sống điều độ lại, đừng bỏ rơi chính tâm hồn mỏng manh.</p>
+                    <p><b>Đừng hiến dâng mình quanh một điều duy nhất</b></p>
+                    <p>Nàng Thơ không phải là trạm sạc pin cho những tâm hồn mệt mỏi, chúng tôi chỉ là một tiệm hoa nhỏ bên đường chờ bạn ghé qua, đặt lại cảm xúc tiêu cực và mang thêm nhiều niềm vui vẻ bên mình.</p>
+                    <p>Thành phố ngột ngạt, ai có thể rời khỏi đều đã đi cả.</p>
+                    <p>Còn những người ở lại, hay chúng ta dừng đôi lúc lại, tặng nhau một bó hoa tươi từ Nàng Thơ thay lời tỏ bày thương nhớ. Để mình đêm về nghe ngát hương mà quên một phần khói bụi và tranh đấu nơi hè phố, trong bức bối của vùng đô thị.</p>
+                    <p>Khỏa lấp tim mình, thật nhiều yêu thương</p>
+                    <p><b>Cửa hàng hoa tươi Nàng Thơ - Mong bạn hãy cứ ghé chơi.</b></p>
+
+
+                </div>
+                <hr />
+                <div class="row text-center">
+
+                    <div class="col-md">
+                        <h6><b>Hotline</b></h6>
+
+                        <p style="font-family: Garamond; text-align: center; font-size: large">
+                            <img src="~/Content/Images_Footer/call.png" width="10%" />
+                            <span style="font-size: 180%">094.3918.205</span>
+                        </p>
+                        <h6><b>Email</b></h6>
+
+                        <p style="font-family: Garamond; text-align: center; font-size: large">
+                            <img src="~/Content/Images_Footer/email.png" width="10%" />
+                            <span style="font-size: 120%">nangtho@gmail.com</span>
+                        </p>
+                    </div>
+
+                    <div class="col-md">
+                        <h6><b>Hà Nội(6h-20h)</b></h6>
+                        <p>
+                            <ul style="text-align: center; list-style: none">
+                                <li>81 Bà Triệu, Hai Bà Trưng</li>
+                                <li>60 Trần Đại Nghĩa, Hai Bà Trưng</li>
+                                <li>7 ngõ 165 Thái Hà, Đống Đa</li>
+                            </ul>
+                        </p>
+                    </div>
+
+                    <div class="col-md">
+                        <h6><b>TP.Hồ Chí Minh(6h-21h)</b></h6>
+                        <p>
+                            <ul style="text-align: center; list-style: none">
+                                <li>92 Hồ Tùng Mậu, P.Bến Nghé, Q1</li>
+                                <li>87 Bàu Cát, P.14, Q.Tân Bình</li>
+                                <li>708 Sư Vạn Hạnh, P.12, Q.10 </li>
+                            </ul>
+                        </p>
+                    </div>
+
+                </div>
+                <div class="row text-center bg-dark">
+                    <div class="col">
+                        <p>
+                            <br />
+                            <a href="https://www.facebook.com/buibichphuongofficial">
+                                <img src="~/Content/Images_Footer/facebook.png" class="mr-2" width="50" /></a>
+                            <a href="https://www.instagram.com/bichphuongofficial/">
+                                <img src="~/Content/Images_Footer/instagram.png" class="mr-2" width="50" /></a>
+                            <a href="https://www.youtube.com/channel/UC90LfbAFYhRLh86Qd-Fs4zg">
+                                <img src="~/Content/Images_Footer/youtube.png" width="55" /></a>
+                        </p>
+                    </div>
+
+                </div>
+
+            </div>
+
+            <style type='text/css'>
+                a {
+                    color: black;
+                    text-decoration: none;
+                }
+
+                    a:hover {
+                        color: pink;
+                    }
+            </style>
+
+
+        </div>
+    </div>
+</body>
+</html>
+<script async src="https://dochat.vn/code.js?id=9201230181627252880"></script>

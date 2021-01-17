@@ -1,0 +1,105 @@
+﻿@{
+    ViewBag.Title = "DatHang";
+    Layout = "~/Views/Share/DetailLayout.cshtml";
+}
+@using DoAn_BanHoa.Models;
+@model List<GioHang>
+<style>
+    input[type=date] {
+        /*width: 100%;
+        padding: 12px 20px;
+        margin: 8px 0;*/
+        box-sizing: border-box;
+        border: 1px solid #e51c71;
+        -webkit-transition: 0.5s;
+        transition: 0.5s;
+        outline: none;
+    }
+</style>
+<div class="card mt-3" style="height: 50px; display: block">
+    <div class="row">
+        <div class="col">
+            <img src="~/Content/icon/check.png" width="30" style="margin-top: 10px; margin-left: 7px;" /><span style="font-weight: bold; text-align: center; margin-left: 10px; margin-top: 25px; font-size: 13pt;">Giỏ hàng</span><span style="float: right;"><img src="~/Content/icon/2.png" width="30" style="margin-top: 10px;" /><span style="font-weight: bold; text-align: center; margin-right: 10px; margin-top: 25px; font-size: 13pt;">Thanh toán đơn hàng</span></span>
+
+        </div>
+    </div>
+</div>
+<div class="row mt-5">
+    <div class="col-md-6">
+        <h3>THÔNG TIN NGƯỜI MUA</h3>
+        @{
+            TAIKHOAN kh = (TAIKHOAN)Session["taiKhoan"];
+        }
+        <table class="table" align="center">
+            @using (Html.BeginForm())
+            {
+                <tr>
+                    <td>Họ tên khách hàng:</td>
+                    <td style="font-weight: bold">@kh.HOTEN</td>
+                </tr>
+                <tr>
+                    <td>Địa chỉ</td>
+                    <td style="font-weight: bold">@kh.DIACHI</td>
+                </tr>
+                <tr>
+                    <td>Điện thoại:</td>
+                    <td style="font-weight: bold">@kh.SDT</td>
+                </tr>
+                <tr>
+                    <td>Ngày đặt:</td>
+                    <td>@DateTime.Now.ToString("dd/MM/yyyy")</td>
+                </tr>
+                <tr>
+                    <td>Ngày giao hàng:</td>
+                    <td>
+                        <input name="Ngaygiao" type="date" />
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2" style="text-align: center;" class="card-footer">
+                        <input class="btn btn-primary" type="submit" value="ĐỒNG Ý ĐẶT HÀNG" style="background-color: #e51c71; border-color: #e51c71" /></td>
+                </tr>
+            }
+
+        </table>
+
+    </div>
+    <div class="col-md-6">
+        <h3>GIỎ HÀNG</h3>
+        <table style="border: 1px solid #e51c71;" class="table table-borderless table-hover ">
+
+            <thead style="font-weight: bold;">
+                <tr>
+                    <td style="width: 50px; text-align: left; border-bottom: 1px solid #e51c71; border-top: 1px solid #e51c71;" class="text-uppercase">Mã</td>
+                    <td style="width: 100px; text-align: left; border-bottom: 1px solid #e51c71; border-top: 1px solid #e51c71;" class="text-uppercase">Hình ảnh</td>
+                    <td style="width: 200px; text-align: center; border-bottom: 1px solid #e51c71; border-top: 1px solid #e51c71;" class="text-uppercase">Tên hoa</td>
+                    <td style="width: 170px; text-align: center; border-bottom: 1px solid #e51c71; border-top: 1px solid #e51c71;" class="text-uppercase">Số lượng</td>
+                    <td style="width: 170px; text-align: left; border-bottom: 1px solid #e51c71; border-top: 1px solid #e51c71;" class="text-uppercase">Đơn giá</td>
+                    <td style="width: 170px; text-align: left; border-bottom: 1px solid #e51c71; border-top: 1px solid #e51c71;" class="text-uppercase">Thành tiền</td>
+                    <td style="width: 170px; text-align: center; border-bottom: 1px solid #e51c71; border-top: 1px solid #e51c71;" class="text-uppercase"><a href="@Url.Action("GioHang", "GioHang")"><span class="btn btn-outline-dark">SỬA</span></a></td>
+                    <td style="border-bottom: 1px solid #e51c71; text-align: center; border-top: 1px solid #e51c71;"></td>
+                </tr>
+            </thead>
+            <!---Chạy dòng foreach-->
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td style="text-align: left;">@item.sMaHoa</td>
+                    <td><a href="@Url.Action("ChiTiet", "Home", new { mh = @item.sMaHoa })">
+                        <img src="~/Content/AlbumHoa/@item.sAnhHoa" width="100" /></a></td>
+                    <td style="text-align: center">@item.sTenHoa</td>
+
+                    <td style="text-align: center">
+                        <label style="width: 50px" class="">@item.iSoLuong</label></td>
+                    <td style="text-align: left">@string.Format("{0:0,0} VNĐ", @item.dDonGia)</td>
+                    <td style="text-align: left">@string.Format("{0:0,0} VNĐ", @item.dThanhTien)</td>
+                    <td style="text-align: center"></td>
+                    <td>
+                </tr>
+                 
+            }
+
+        </table>
+
+    </div>
+</div>

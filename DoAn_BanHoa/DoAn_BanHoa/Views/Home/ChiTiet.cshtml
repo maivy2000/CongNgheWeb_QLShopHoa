@@ -1,0 +1,182 @@
+﻿@using DoAn_BanHoa.Models;
+@model HOA
+
+@{
+    ViewBag.Title = "ChiTiet";
+    Layout = "~/Views/Share/DetailLayout.cshtml";
+    List<HOA> dsHoa = ViewBag.slide1;
+    List<HOA> dsHoa2 = ViewBag.slide2;
+    List<HOA> dsHoa3 = ViewBag.slide3;
+
+}
+
+<div class="row mt-5" style="border: 1px solid #ddd; border-radius: 40px 30px; box-shadow: 4px 4px 9px #6E6E6E;">
+    @*<div class="col-md-2" style="border: 2px solid #e51c71; border-radius: 3px 4px;">
+        <img src="~/Content/AlbumHoa/@Model.ANH" style="width:100%" />
+    </div>*@
+
+    <div class="col-md-5 mt-3" style="text-align: center">
+
+        <img class="card-img-top" src="~/Content/AlbumHoa/@Model.ANH" width="550px" style="margin-top:80px;" />
+    </div>
+    <div class="col-md-6 mt-5" style="border-radius: 3px 4px;">
+        <h1 style="margin-top: 20px; font-family: Quicksand; text-align: center;"><span style="border-bottom: 2px solid #43768a;">@Model.TENHOA</span></h1>
+
+        <h2 class="title-product" style="color: darkblue; font-family: Quicksand;">Mã Hoa: @Model.MAHOA</h2>
+        <br />
+        <h3 style="font-family: Quicksand;">Giá Sản Phẩm:<span style="color: #FC5776; font-weight: bold"> @string.Format("{0:0,0} VNĐ", @Model.GIA)</span></h3>
+        <br />
+        <h3 style="font-family: Quicksand;" class="">Chi tiết Sản Phẩm:</h3>
+        <h4 style="font-family:Quicksand;color:darkblue">@Model.MOTA</h4>
+        <br />
+        <br />
+
+        @*<h3>Số lượng:<input type="number" name="txtSoLuong" value="1" min="1" class="form-control" /></h3>*@
+        <!--Fix cứng mô tả phần lưu ý và quà tặng-->
+        <div class="card">
+            <div class="card-header bg-danger text-white text-uppercase" style="font-weight:bold">Lưu ý:</div>
+            <div class="card-body" style="background-color:lightcoral">
+                <div class="card-text text-justify" style="color:darkred">
+                    <p style="font-family:Quicksand;font-size:16pt;">Sản phẩm chỉ có ở Hồ Chí Minh và Hà Nội</p>
+                    <p style="font-family:Quicksand;font-size:16pt;">Sản phẩm bạn đang chọn là sản phẩm được thiết kế đặc biệt</p>
+                    <p style="font-family:Quicksand;font-size:16pt;">Hiện nay, Shop Hoa chỉ thử nghiệm cung cấp cho thị trường <span style="font-weight: bold">Tp. Hồ Chí Minh và Tp. Hà Nội.</span></p>
+                </div>
+            </div>
+        </div>
+        <!--Card tặng quà, hok mua cũng có quà-->
+        <div class="card mt-4">
+            <div class="card-header bg-info text-white text-uppercase" style="font-weight:bold">Quà tặng</div>
+            <div class="card-body" style="background-color:lightcyan">
+                <div class="card-text " style="color:darkblue;" >
+                    <p style="font-family:Quicksand;font-size:16pt;">
+                        <img src="~/Content/number_cus/1.png" width="" /><span style="margin-left:5px;">Tặng banner, thiệp (trị giá 20.000đ) miễn phí.</span></p>
+                    <p style="font-family:Quicksand;font-size:16pt;"><img src="~/Content/number_cus/2.png" width="" /><span style="margin-left:5px;">Giảm ngay 20.000đ khi Bạn tạo đơn hàng online</span></p>
+                    <p style="font-family:Quicksand;font-size:16pt;"><img src="~/Content/number_cus/3.png" width="32px" /><span style="margin-left:5px;">Giảm tiếp 3% cho đơn hàng Bạn tạo ONLINE lần thứ 2, 5% cho đơn hàng Bạn tạo ONLINE lần</span>
+                        <span style=""> thứ 6 và 10% cho đơn hàng Bạn tạo ONLINE lần thứ 12 (Chỉ áp dụng tại Tp. HCM)</span> </p>
+                    <p style="font-family:Quicksand;font-size:16pt;"><img src="~/Content/number_cus/4.png" width="" /><span style="margin-left:5px;">Giao miễn phí trong nội thành 63/63 tỉnh</span></p>
+                    <p style="font-family:Quicksand;font-size:16pt;"><img src="~/Content/number_cus/5.png" width="32px" /><span style="margin-left:5px;">Giao gấp trong vòng 2 giờ</span></p>
+                    <p style="font-family:Quicksand;font-size:16pt;"><img src="~/Content/number_cus/6.png" width="" /><span style="margin-left:5px;">Cam kết 100% hoàn lại tiền nếu Bạn không hài lòng</span></p>
+                    <p style="font-family:Quicksand;font-size:16pt;"><img src="~/Content/number_cus/7.png" width="" /><span style="margin-left:5px;">Cam kết hoa tươi trên 3 ngày</span></p>
+                </div>
+            </div>
+        </div>
+        <div style="" class="form-group row">
+            <div style="text-align: center;margin-left:300px" class="input-group mb-3 mt-3 ">
+                <div class="input-group-prepend" style="">
+
+                    <button class="btn btn-outline-danger" type="button">
+                        <a href="@Url.Action("SanPham", "Home")">
+                            <img src="~/Content/icon/home.png" style="margin-bottom: 5px" width="18" height="18" />
+                        </a>
+                    </button>
+
+                    <div style="border: 1px solid #dc3545; background-color: #dc3545; width: 100%; height: 100%;" class=" input-group-append rounded text-white text-center">
+                        <!--<button style="width: 100%; margin-left: 10px; font-size: 13pt" type="submit" value="" aria-invalid="false">-->
+                            
+                            
+                           <a href="@Url.Action("ThemGioHang", "GioHang", new { @maHoa = Model.MAHOA, @strURL = Request.Url.ToString() })">
+                               <button type="submit" class="btn btn-danger"  aria-invalid="false">Đặt Hàng
+                                   <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-basket3-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                       <path fill-rule="evenodd" d="M5.757 1.071a.5.5 0 0 1 .172.686L3.383 6h9.234L10.07 1.757a.5.5 0 1 1 .858-.514L13.783 6H15.5a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5H.5a.5.5 0 0 1-.5-.5v-1A.5.5 0 0 1 .5 6h1.717L5.07 1.243a.5.5 0 0 1 .686-.172z" />
+                                       <path d="M2.468 15.426L.943 9h14.114l-1.525 6.426a.75.75 0 0 1-.729.574H3.197a.75.75 0 0 1-.73-.574z" />
+                                   </svg>
+                               </button>
+                           </a>
+                        @*</button>*@
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div>
+    <h3 style="border-bottom: 2px solid black; margin-top: 10px;"><span style="border-bottom: 5px solid #e51c71;">SẢN PHẨM LIÊN QUAN</span></h3>
+
+    <div style="margin-top: 10px;" id="slides" class="carousel slide " data-ride="carousel">
+        <ul class="carousel-indicators">
+            <li data-target="#slides" data-slide-to="0" class="carousel-active"></li>
+            <li data-target="#slides" data-slide-to="1"></li>
+            <li data-target="#slides" data-slide-to="2"></li>
+        </ul>
+        <div class="carousel-inner">
+
+
+            <div class="carousel-item active">
+                <div class="row">
+                    @foreach (var item in dsHoa)
+                    {
+                    
+                        <div class="col-md-2 col-sm-2 ">
+                            <div style="background-color: lavenderblush; border: 1px solid #ddd" class="card h-100 bg-light card mb-3">
+                                <a href="@Url.Action("ChiTiet", "Home", new { mh = @item.MAHOA })">
+                                    <img class="card-img-top" src="~/Content/AlbumHoa/@item.ANH" style="width:100%" /></a>
+                                <div class="card-body" style="height: 81px">
+                                    <h5 style="font-weight: bold;" class="card-title text-info text-center">
+                                        @item.TENHOA
+                                    </h5>
+                                </div>
+                                <div class="card-footer" style="color: #333; font-weight: bold; text-align: center; background-color: lightpink">
+                                    Giá: <span style="color: red; font-weight: bold">@string.Format("{0:0,0} VNĐ", @item.GIA)</span>
+                                </div>
+                            </div>
+                        </div>}
+                </div>
+            </div>
+            <div class="carousel-item">
+
+                <div class="row">
+                    @foreach (var item in dsHoa3)
+                    {
+                        <div class="col-md-2 col-sm-2 ">
+                            <div style="background-color: lavenderblush; border: 1px solid #ddd" class="card h-100 bg-light card mb-3">
+                                <a href="@Url.Action("ChiTiet", "Home", new { mh = @item.MAHOA })">
+                                    <img class="card-img-top" src="~/Content/AlbumHoa/@item.ANH" style="width:100%" /></a>
+                                <div class="card-body" style="height: 81px">
+                                    <h5 style="font-weight: bold;" class="card-title text-info text-center">
+                                        @item.TENHOA
+                                    </h5>
+                                </div>
+                                <div class="card-footer" style="color: #333; font-weight: bold; text-align: center; background-color: lightpink">
+                                    Giá: <span style="color: red; font-weight: bold">@string.Format("{0:0,0} VNĐ", @item.GIA)</span>
+                                </div>
+                            </div>
+                        </div>}
+                </div>
+            </div>
+            <div class="carousel-item">
+
+                <div class="row ">
+                    @foreach (var item in dsHoa2)
+                    {
+                        <div class="col-xl-2 col-md-2 col-sm-2   " style="width: 100%">
+                            <div style="background-color: lavenderblush; border: 1px solid #ddd" class="card h-100 bg-light card mb-3">
+                                <a href="@Url.Action("ChiTiet", "Home", new { mh = @item.MAHOA })">
+                                    <img class="card-img-top" src="~/Content/AlbumHoa/@item.ANH" style="width:100%" /></a>
+                                <div class="card-body" style="height: 81px">
+                                    <h5 style="font-weight: bold;" class="card-title text-info text-center">
+                                        @item.TENHOA
+                                    </h5>
+                                </div>
+                                <div class="card-footer" style="color: #333; font-weight: bold; text-align: center; background-color: lightpink;">
+                                    Giá: <span style="color: red; font-weight: bold">@string.Format("{0:0,0} VNĐ", @item.GIA)</span>
+                                </div>
+                            </div>
+                        </div>}
+
+                </div>
+            </div>
+            <!---->
+            <a class="carousel-control-prev" href="#slides" role="button" data-slide="prev">
+                <span style="margin-right: 150px" @*class="carousel-control-prev-icon"*@ aria-hidden="true">
+                    <img src="~/Content/icon/prev_info.png" width="50" /></span>
+                <span class="sr-only">Previous</span>
+            </a>
+            <a class="carousel-control-next " href="#slides" role="button" data-slide="next">
+                <span style="margin-left: 100px" @*class="carousel-control-next-icon"*@ aria-hidden="true">
+                    <img src="~/Content/icon/next_info.png" width="50" /></span>
+            </a>
+        </div>
+
+    </div>
+</div>
+

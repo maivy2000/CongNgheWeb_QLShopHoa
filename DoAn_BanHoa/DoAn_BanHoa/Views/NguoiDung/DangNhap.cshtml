@@ -1,0 +1,68 @@
+﻿@{
+    ViewBag.Title = "DangNhap";
+    Layout = "~/Views/Share/TrangChuLayout.cshtml";
+}
+
+@model DoAn_BanHoa.Models.User
+<style>
+    label {
+        font-family: 'Quick sands', sans-serif;
+        font-weight: bold;
+        font-size: 14pt;
+    }
+
+    input[type=text] {
+        width: 100%;
+        padding: 12px 20px;
+        margin: 8px 0;
+        box-sizing: border-box;
+        border: 1px solid #e51c71;
+        -webkit-transition: 0.5s;
+        transition: 0.5s;
+        outline: none;
+    }
+
+        input[type=text]:focus {
+            border: 3px solid #e51c71;
+        }
+
+            input[type=password] {
+        width: 100%;
+        padding: 12px 20px;
+        margin: 8px 0;
+        box-sizing: border-box;
+        border: 1px solid #e51c71;
+        -webkit-transition: 0.5s;
+        transition: 0.5s;
+        outline: none;
+    }
+
+        input[type=password]:focus {
+            border: 3px solid #e51c71;
+        }
+
+</style>
+@*@using (Html.BeginForm("DangNhap", "NguoiDung", FormMethod.Post))*@
+<form action="/NguoiDung/DangNhap" method="post">
+    <h2 style="color: darkblue; text-align: center; margin-top: 10px">ĐĂNG NHẬP TÀI KHOẢN</h2>
+    <input type="text" name="txtTenDN" style="width: 70%; margin-left: 150px" placeholder="Tên Đăng Nhập" class="form-control"/><br />
+    <p style="color:red;font-weight:bold;text-align:center;">@ViewData["Loi1"]</p>
+        <input type="password" name="txtMatKhau" style="width: 70%; margin-left: 150px" placeholder="Mật khẩu" class="form-control"/><br />
+    <p style="color:red;font-weight:bold;text-align:center;">@ViewData["Loi2"]</p>
+    <div class="text-center text-uppercase">
+        <input class="btn form-group text-white" style="background-color:#e51c71" type="submit" value="Đăng nhập"/></div>
+        </form>
+         <form>
+            @if (Request.HttpMethod == "POST")
+            {
+                if (ViewBag.tb != null)
+                {
+                <p style="color: red;font-weight:bold;text-align:center">@ViewBag.tb</p>
+                }
+                @*else
+                {
+                <p style="color: red">@ViewBag.tb</p>
+                }*@
+
+            }</form>
+

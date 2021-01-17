@@ -1,0 +1,55 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <!--Bootstrap 4-->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" />
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <script src="https://cdn.rawgit.com/PascaleBeier/bootstrap-validate/v2.2.0/dist/bootstrap-validate.js"></script>
+    <link href="~/Content/PagedList.css" rel="stylesheet" />
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+</head>
+<body>
+    <!---Navbar cho Admin-->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light" style="box-shadow: 4px 4px 9px #6E6E6E; font-size: 13pt">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">
+                <img src="~/Content/icon/management.png" width="50" />
+            </a>
+            <div class="collapse navbar-collapse">
+                <ul class="navbar-nav mr-auto mb-2 mb-lg-0">
+                    @*<li class="nav-item">
+                        <a class="nav-link active text-uppercase text-black" href="@Url.Action("Home", "Index")">HOME</a>
+                    </li>*@
+                    <li class="nav-item">
+                        <a class="nav-link active text-uppercase text-black" href="@Url.Action("SanPhamAdmin", "Product")">DANH SÁCH SẢN PHẨM</a>
+                    </li>
+                    <li class="nav-item">
+                        @Html.Action("DSThanhVien", "Product")
+
+                    </li>
+                    <li class="nav-item"><a class="nav-link active text-uppercase text-black" href="@Url.Action("ThemSanPham", "Product")" >THÊM SẢN PHẨM</a></li>
+
+                    <li></li>
+                </ul>
+                <a class="nav-link active text-uppercase text-black" style="float: left">
+                    @if (Session["kh"] != null)
+                    {
+                        <p style="margin-right: 5px;">Xin chào:<b>@Session["kh"]</b></p>
+                    }@Html.ActionLink("ĐĂNG XUẤT", "DangNhap", "NguoiDung") </a>
+
+            </div>
+        </div>
+    </nav>
+    <div class="container">
+
+        @* @Html.Action("SanPhamAdmin", "Product")     
+                @Html.Action("DSMenu_LoaiHoa","Product")*@
+        @RenderBody()
+    </div>
+</body>
+</html>
+<script async src="https://dochat.vn/code.js?id=9201230181627252880"></script>

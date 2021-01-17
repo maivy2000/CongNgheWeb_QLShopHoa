@@ -1,0 +1,8 @@
+﻿@using DoAn_BanHoa.Models;
+@model List<LOAIHOA>
+ @foreach (var item in Model)
+    {
+       <a href="@Url.Action("HTTheoLoaiHoa", "Product", new { @maLoai = @item.MALOAI })">@item.TENLOAI</a>
+    }
+
+               

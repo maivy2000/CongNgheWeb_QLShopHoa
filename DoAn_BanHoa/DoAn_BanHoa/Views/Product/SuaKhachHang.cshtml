@@ -1,0 +1,44 @@
+﻿@{
+    ViewBag.Title = "SuaKhachHang";
+    Layout = "~/Views/Share/AdminLayout.cshtml";
+}
+
+<h2 style="text-align: center;margin-top:15px; color: darkblue">SỬA THÔNG TIN KHÁCH HÀNG</h2>
+@model DoAn_BanHoa.Models.TAIKHOAN
+@using (Html.BeginForm("SuaKhachHang", "Product", FormMethod.Post, new { @enctype = "multipart/form-data" }))
+{
+    @Html.HiddenFor(model => model.MAKH)
+    <div class="form-group row">
+        <label class="col-md-2">Họ tên:</label>
+        <div class="col-md-10 ">@Html.TextBoxFor(item => item.HOTEN, new { @class = "form-control" })
+        </div>
+    </div>
+    <div class="form-group row">
+        <label class="col-md-2">Tên ĐN</label>
+        <div class="col-md-10 ">@Html.TextBoxFor(item => item.TENDN, new { @class = "form-control",disabled="disabled" })
+            @*<p style="color:red;font-weight:bold;text-align:center;">@ViewBag.tb</p>*@
+        </div>
+    </div>
+    <div class="form-group row">
+        <label class="col-md-2">Mật khẩu</label>
+        <div class="col-md-10">
+            @*@Html.TextBoxFor(item => item.MATKHAU, new { @class = "form-control", type = "password" })*@
+            <input type="password" name="txtMatKhau" class="form-control" />
+        </div>
+
+    </div>
+    <div class="form-group row">
+        <label class="col-md-2">Nhập lại mật khẩu</label>
+        <div class="col-md-10">
+            @*@Html.TextBoxFor(item => item.MATKHAU, new { @class = "form-control", type = "password" })*@
+            <input type="password" class="form-control" />
+        </div>
+
+    </div>
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-12 text-center">
+            <input type="submit" value="Sửa thông tin" class="btn btn-default" />
+        </div>
+    </div>
+}
+

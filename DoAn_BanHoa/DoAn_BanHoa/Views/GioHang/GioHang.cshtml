@@ -1,0 +1,100 @@
+﻿@{
+    ViewBag.Title = "GioHang";
+    Layout = "~/Views/Share/DetailLayout.cshtml";
+}
+
+@using DoAn_BanHoa.Models;
+@model List<GioHang>
+<style>
+    .chu {
+        font-family: 'Quick sands', sans-serif;
+        font-weight: bold;
+        font-size: 16pt;
+    }
+
+    textarea {
+        background-color: #e51c71;
+        border-color: #e51c71;
+    }
+
+    input[type=number] {
+        /*width: 100%;
+        padding: 12px 20px;
+        margin: 8px 0;*/
+        box-sizing: border-box;
+        border: 1px solid #e51c71;
+        -webkit-transition: 0.5s;
+        transition: 0.5s;
+        outline: none;
+    }
+</style>
+<h2 style="color: #e51c71; margin-top: 10px;">GIỎ HÀNG CỦA BẠN</h2>
+
+<div class="row">
+    <div class="col-md-9">
+        <table style="border: 1px solid #e51c71;" class="table table-borderless table-hover ">
+
+            <thead style="font-weight: bold;">
+                <tr>
+                    <td style="width: 50px; text-align: left; border-bottom: 1px solid #e51c71; border-top: 1px solid #e51c71;" class="text-uppercase">Mã</td>
+                    <td style="width: 100px; text-align: left; border-bottom: 1px solid #e51c71; border-top: 1px solid #e51c71;" class="text-uppercase">Hình ảnh</td>
+                    <td style="width: 200px; text-align: center; border-bottom: 1px solid #e51c71; border-top: 1px solid #e51c71;" class="text-uppercase">Tên hoa</td>
+                    <td style="width: 170px; text-align: center; border-bottom: 1px solid #e51c71; border-top: 1px solid #e51c71;" class="text-uppercase">Số lượng</td>
+                    <td style="width: 170px; text-align: left; border-bottom: 1px solid #e51c71; border-top: 1px solid #e51c71;" class="text-uppercase">Đơn giá</td>
+                    <td style="width: 170px; text-align: left; border-bottom: 1px solid #e51c71; border-top: 1px solid #e51c71;" class="text-uppercase">Thành tiền</td>
+                    <td style="width: 170px; text-align: center; border-bottom: 1px solid #e51c71; border-top: 1px solid #e51c71;" class="text-uppercase"><a href="@Url.Action("DeleteAllSP", "GioHang")">Delete All</a></td>
+                    <td style="border-bottom: 1px solid #e51c71; border-top: 1px solid #e51c71;"></td>
+                </tr>
+            </thead>
+
+            <!---Chạy dòng foreach-->
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td style="text-align: left;">@item.sMaHoa</td>
+                    <td><a href="@Url.Action("ChiTiet", "Home", new { mh = @item.sMaHoa })">
+                        <img src="~/Content/AlbumHoa/@item.sAnhHoa" width="100" /></a></td>
+                    <td style="text-align: center">@item.sTenHoa</td>
+                    @using (Html.BeginForm("CapNhatGioHang", "GioHang", new { @MaSP = item.sMaHoa }))
+                    {
+                        <td style="text-align: center">
+                            <input name="txtSoLuong" type="number" min="1" max="99" value="@item.iSoLuong" style="width: 50px" class="" /></td>
+                        <td style="text-align: left">@string.Format("{0:0,0} VNĐ", @item.dDonGia)</td>
+                        <td style="text-align: left">@string.Format("{0:0,0} VNĐ", @item.dThanhTien)</td>
+                        <td style="text-align: center"><a href="@Url.Action("XoaGioHang", "GioHang", new { @MaSP = @item.sMaHoa })">Delete
+                        </a></td>
+                        <td>
+                            <input style="background-color: #e51c71; color: whitesmoke" type="submit" value="Update" class="btn" /></td>
+                    }
+
+                </tr>
+            }
+        </table>
+
+    </div>
+    <div class="col-md-3">
+        <div style="border: 2px solid #e51c71;" class="form-control">
+            <br />
+            <div class="row">
+                <div class="col-md">
+                    <h6>TỔNG SỐ LƯỢNG
+                    <br />
+                        <span class="chu" style="color: #e51c71; margin-left: 50px;">@ViewBag.TongSoLuong</span></h6>
+                </div>
+                <div class="col-md">
+                    <h6>THÀNH TIỀN
+                <br />
+                        <span class="chu" style="color: #e51c71;">@string.Format("{0:0,0} VNĐ", ViewBag.TongThanhTien)</span>
+                    </h6>
+                    <br />
+
+                </div>
+            </div>
+            <a href="@Url.Action("DatHang", "GioHang")"><input style="font-weight: bold; width: 100%; font-size: 16pt" type="submit" class="btn btn-danger text-white" value="ĐẶT HÀNG" /></a>
+        </div>
+
+
+    </div>
+</div>
+
+

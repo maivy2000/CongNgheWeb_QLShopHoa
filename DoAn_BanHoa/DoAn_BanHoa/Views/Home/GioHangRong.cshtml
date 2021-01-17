@@ -1,0 +1,14 @@
+﻿@{
+    ViewBag.Title = "GioHangRong";
+    Layout = "~/Views/Share/DetailLayout.cshtml";
+}
+
+<div class="container">
+    <div class="form-group text-center">
+    <img style="text-align:center;margin-top:100px;" src="~/Content/icon/shopping-cart.png" width="80" /></div>
+    <h1 style="text-align:center">Giỏ hàng còn trống!</h1>
+    <p style="text-align:center;font-size:16pt">Trước khi tiến hành thanh toán, bạn phải thêm một số sản phẩm vào giỏ hàng của mình. Bạn sẽ tìm thấy rất nhiều sản phẩm thú vị trên Shop Hoa của chúng tôi.</p>
+    <div  class="form-group text-center">
+    <a style="background-color:#e51c71;margin-top:30px;font-weight:bold;font-size:16pt;border-radius:40px 40px; " href="@Url.Action("SanPham","Home")" class="btn text-uppercase text-white w-25 h-35 ">MUA NGAY</a></div>
+</div>
+

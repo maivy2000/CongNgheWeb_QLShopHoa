@@ -1,0 +1,14 @@
+﻿@using DoAn_BanHoa.Models;
+@model List<CHUDE>
+<ul class="list-group list-group-flush text-left ml-2">
+    <li class="list-group-item" style="background: linear-gradient(to right, #e51c71 0%, #33ccff  100%);"><a href="#" style="text-transform: uppercase; text-decoration: none; color: white; font-weight: bold;">chủ đề hoa</a></li>
+    @foreach (var item in Model)
+    {
+        
+           <li class="list-group-item" >
+               <a href="@Url.Action("HTTheoChuDe", "Home", new {@mcd = @item.MACHUDE })" style="text-transform: uppercase; text-decoration: none; color: darkblue; font-weight: bold;">@item.TENCHUDE</a>
+               @*@Html.ActionLink(@item.TENCHUDE, "HTTheoChuDe", "Home", new { @mcd = @item.MACHUDE }, new { @class="color: darkblue"})*@
+           </li> 
+    }
+
+</ul>
